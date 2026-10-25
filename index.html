@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Brungi Shiva Ganesh — AI, Cloud &amp; Full Stack Engineer</title>
+<meta name="description" content="Portfolio of Brungi Shiva Ganesh, B.Tech Computer Science &amp; Engineering (Data Science) at NMIMS Hyderabad. Computer vision, deep learning, NLP, AWS serverless and full stack projects.">
+<meta property="og:title" content="Brungi Shiva Ganesh — AI, Cloud &amp; Full Stack Engineer">
+<meta property="og:description" content="Computer vision, deep learning, NLP, AWS serverless and full stack projects.">
+<meta property="og:image" content="screenshots/desktop-hero.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Cpath d='M9 7h8.5c3.6 0 5.8 1.7 5.8 4.4 0 1.9-1.1 3.2-2.8 3.7 2.1.4 3.5 1.9 3.5 4.1 0 3.1-2.4 4.8-6.3 4.8H9z' fill='%23DEC1FC'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/hanken-variable.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+/* adds .is-entering only when the entrance can actually run; failsafe shows the static page after 2.6 s */
+(function(d){try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'animate' in Element.prototype){d.classList.add('is-entering');setTimeout(function(){if(!window.__soscaleEntrance)d.classList.remove('is-entering')},2600);}}catch(e){}})(document.documentElement);
+</script>
+<style>
+@font-face{font-family:"Hanken";src:url(assets/hanken-variable.woff2) format("woff2");font-weight:100 900;font-display:block}
+@font-face{font-family:"JBMono";src:url(assets/jb-mono-variable.woff2) format("woff2");font-weight:100 800;font-display:block}
+
+:root{
+  --u:min(calc(100vw / 1280),calc(100vh / 640));
+  --u:min(calc(100vw / 1280),calc(100svh / 640));
+  --frame-w:calc(1280 * var(--u));
+  --frame-x:calc(50% - 640 * var(--u));
+  --cu:var(--u);--hb:var(--u);--tb:var(--u);--nu:var(--u);
+  --layout:desktop;
+  --strip-top:calc(120 * var(--u));
+  --strip-w:var(--frame-w);
+  --strip-bot:calc(10 * var(--u));
+  --lilac:#DEC1FC;--nav:#c2c2c2;--ink:#1a0b1f;
+  --dim:#8a8a8a;--line:#1f1f1f;--cream:#FFFEF7;
+  --gut:clamp(16px,4vw,56px);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000;overscroll-behavior:none}
+html{scroll-behavior:smooth}
+body{overflow-x:hidden;font-family:"Hanken",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:geometricPrecision}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+:focus-visible{outline:2px solid var(--lilac);outline-offset:3px;border-radius:2px}
+
+/* ---------- hero ---------- */
+.stage{position:relative;width:100%;height:100vh;height:100svh;overflow:hidden;background:#000;isolation:isolate}
+.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:54% 50%;z-index:0;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.photo.is-placed{inset:auto;object-fit:fill;max-width:none}
+.lift{position:absolute;left:0;right:0;top:0;height:var(--band-h,calc(320 * var(--u)));z-index:1;pointer-events:none;background:rgba(150,118,104,.30);mix-blend-mode:screen}
+.shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:none}
+
+.band{position:absolute;left:0;right:0;top:0;z-index:2;display:grid;
+  grid-template-columns:1fr var(--strip-w) 1fr;
+  grid-template-rows:var(--strip-top) calc(var(--strip-w) * 190 / 1280) var(--strip-bot)}
+.band>span{background:#000}
+.band .band-top,.band .band-bot{grid-column:1/-1}
+.band h1{grid-column:2;grid-row:2;position:relative;font-size:0;line-height:0}
+.band svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;display:block}
+
+.nav{position:absolute;top:0;left:var(--frame-x);width:var(--frame-w);height:calc(100 * var(--u));z-index:4}
+.nav .col{position:absolute;font-weight:250;font-size:calc(14.286 * var(--nu));line-height:calc(18 * var(--nu));white-space:nowrap;color:var(--nav)}
+.nav .col a{display:inline-block;letter-spacing:calc(var(--ls) * var(--nu));transition:opacity .15s}
+.nav .col a:hover{opacity:.6}
+.tagline{position:absolute;left:calc(540 * var(--u));top:calc(11.357 * var(--u));font-weight:250;font-size:calc(14.286 * var(--nu));line-height:calc(14.286 * var(--nu));letter-spacing:calc(-1.532 * var(--nu));word-spacing:calc(3.44 * var(--nu));white-space:nowrap;color:var(--nav)}
+.cta{position:absolute;left:calc(1067.5 * var(--u));top:calc(9.5 * var(--u));width:calc(199.5 * var(--cu));height:calc(28.5 * var(--cu));background:var(--lilac);color:var(--ink);border-radius:calc(2 * var(--cu));white-space:nowrap;transition:filter .15s}
+.cta b{font-weight:inherit}
+.cta:hover{filter:brightness(1.06)}
+.cta svg{position:absolute;left:calc(10 * var(--cu));top:calc(10 * var(--cu));width:calc(10 * var(--cu));height:calc(10 * var(--cu))}
+.cta span{position:absolute;left:calc(25.5 * var(--cu));top:calc(8.357 * var(--cu));font-weight:280;font-size:calc(14.286 * var(--cu));line-height:calc(14.286 * var(--cu));letter-spacing:calc(-1.042 * var(--cu));word-spacing:calc(3.2 * var(--cu))}
+.menu-btn{display:none}
+.nav-links{display:contents}
+
+.copy{position:absolute;left:var(--frame-x);width:var(--frame-w);bottom:0;height:calc(100 * var(--u));z-index:3}
+.headline{position:absolute;left:calc(404.5 * var(--u));top:calc(21.715 * var(--u));font-weight:290;font-size:calc(28.571 * var(--hb));line-height:calc(28.571 * var(--hb));letter-spacing:calc(-0.896 * var(--hb));word-spacing:calc(5.62 * var(--hb));white-space:nowrap}
+.tp{position:absolute;left:calc(504 * var(--u));top:calc(66 * var(--u));width:calc(320 * var(--tb));height:calc(19 * var(--tb));display:block}
+.tp>svg{position:absolute;left:0;top:0;width:calc(16 * var(--tb));height:calc(19 * var(--tb));overflow:visible}
+.tp .tp-word{position:absolute;left:calc(17 * var(--tb));top:calc(5.257 * var(--tb));font-weight:500;font-size:calc(12.286 * var(--tb));line-height:calc(12.286 * var(--tb));letter-spacing:calc(-0.149 * var(--tb));white-space:nowrap;color:#fff}
+.tp .tile{position:absolute;top:calc(1.7 * var(--tb));width:calc(15.6 * var(--tb));height:calc(15.4 * var(--tb));background:var(--lilac);color:#000;display:grid;place-items:center;transition:filter .15s}
+.tp .tile::after{content:"";position:absolute;inset:calc(-6 * var(--tb)) calc(-1 * var(--tb))}
+.tp .tile:hover{filter:brightness(1.1)}
+.tp .tile svg{width:calc(10 * var(--tb));height:calc(10 * var(--tb))}
+.tp .tp-meta{position:absolute;left:calc(146 * var(--tb));top:calc(4.015 * var(--tb));font-family:"JBMono",ui-monospace,Menlo,monospace;font-weight:400;font-size:calc(11.37 * var(--tb));line-height:calc(11.37 * var(--tb));letter-spacing:calc(-0.268 * var(--tb));white-space:nowrap;color:var(--cream)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.lid{opacity:0;transform-box:fill-box;transform-origin:50% 0}
+.is-entering .lid{opacity:1}
+.is-entering :is(.nav .col,.menu-btn,.tagline,.cta,.headline,.tp){opacity:0}
+
+@media (max-width:1074.98px),(max-height:537.98px){
+  :root{
+    --layout:tablet;
+    --pad:clamp(20px,3.2vw,32px);
+    --nu:1px;--cu:1px;--hb:1px;--tb:1px;
+    --head-h:72px;
+    --strip-top:var(--head-h);
+    --strip-w:min(100vw,calc((100svh - var(--head-h)) * .3 * 1280 / 190));
+    --strip-bot:calc(var(--strip-w) * 10 / 1280);
+  }
+  .nav{left:0;width:100%;height:var(--head-h);padding:0 var(--pad);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;column-gap:16px}
+  .menu-btn{display:inline-flex;justify-self:start;align-items:center;gap:10px;min-height:44px;background:none;border:0;color:var(--nav);font-family:inherit;font-weight:250;font-size:calc(14.286 * var(--nu));line-height:1;letter-spacing:calc(-1.252 * var(--nu));cursor:pointer;padding:0 8px 0 0;-webkit-tap-highlight-color:transparent}
+  .menu-btn i{position:relative;display:block;width:18px;height:7px}
+  .menu-btn i::before,.menu-btn i::after{content:"";position:absolute;left:0;right:0;height:1px;background:currentColor;transition:transform .22s ease}
+  .menu-btn i::before{top:0}
+  .menu-btn i::after{bottom:0}
+  .nav.is-open .menu-btn i::before{transform:translateY(3px) rotate(45deg)}
+  .nav.is-open .menu-btn i::after{transform:translateY(-3px) rotate(-45deg)}
+  .tagline{position:static;justify-self:center}
+  .cta{position:relative;left:auto;top:auto;justify-self:end;flex:none}
+  .cta::after{content:"";position:absolute;inset:-8px -6px}
+  .nav-links{display:grid;position:absolute;top:var(--head-h);left:0;right:0;z-index:5;grid-template-columns:repeat(3,max-content);column-gap:clamp(40px,7vw,88px);padding:0 var(--pad) 24px;background:#000;
+    visibility:hidden;clip-path:inset(0 0 100% 0);transition:clip-path .26s cubic-bezier(.2,.7,.2,1),visibility 0s linear .26s}
+  .nav.is-open .nav-links{visibility:visible;clip-path:inset(0);transition:clip-path .26s cubic-bezier(.2,.7,.2,1)}
+  .nav .col{position:static}
+  .nav .col a{padding:12px 0}
+  .copy{left:0;width:100%;height:auto;bottom:calc(15 * var(--tb) + env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;gap:calc(15.7 * var(--hb));padding:0 var(--pad)}
+  .headline,.tp{position:relative;left:auto;top:auto}
+  .tp{width:calc(272 * var(--tb));margin-left:calc(-2 * var(--tb))}
+}
+@media (max-width:559.98px){
+  :root{
+    --layout:mobile;
+    --pad:clamp(14px,4.2vw,22px);
+    --head-h:64px;
+    --tag-row:30px;
+    --cu:min(1px,calc((100vw - 2 * var(--pad) - 88px) / 199.5));
+    --hb:min(1.1px,calc((100vw - 2 * var(--pad)) / 300));
+    --tb:min(1px,calc((100vw - 2 * var(--pad)) / 322));
+    --strip-top:calc(var(--head-h) + var(--tag-row));
+    --strip-w:calc((100vw - 2 * var(--pad)) * 1280 / 1259);
+    --strip-bot:10px;
+  }
+  .nav{height:auto;grid-template-columns:1fr auto;grid-template-rows:var(--head-h) var(--tag-row);column-gap:12px}
+  .menu-btn{grid-column:1;grid-row:1}
+  .cta{grid-column:2;grid-row:1}
+  .tagline{grid-column:1/-1;grid-row:2;align-self:start;justify-self:center;margin-top:2px}
+  .nav-links{column-gap:clamp(12px,5vw,40px);padding-bottom:20px}
+  .copy{bottom:calc(max(18px,env(safe-area-inset-bottom)) + 6px);gap:16px}
+  .headline{white-space:normal;text-align:center;text-wrap:balance;max-width:calc(318 * var(--hb));line-height:1.08}
+  .lift{background:rgba(150,118,104,.52)}
+}
+@media (hover:none){ .nav .col a:hover{opacity:1} .cta:hover{filter:none} }
+@media (prefers-reduced-motion:reduce){ .nav-links,.nav.is-open .nav-links,.menu-btn i::before,.menu-btn i::after{transition:none} html{scroll-behavior:auto} }
+
+/* ---------- content sections (same type system as the hero) ---------- */
+.sec{position:relative;padding:clamp(72px,10vw,140px) var(--gut) 0;max-width:1280px;margin:0 auto;scroll-margin-top:24px}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;padding-bottom:clamp(28px,4vw,48px);border-bottom:1px solid var(--line)}
+.idx{font-family:"JBMono",ui-monospace,Menlo,monospace;font-size:11.37px;letter-spacing:-.268px;color:var(--dim);text-transform:uppercase}
+.idx b{font-weight:400;color:var(--lilac)}
+.h2{font-weight:290;font-size:clamp(34px,6.2vw,80px);line-height:.98;letter-spacing:-.035em;text-transform:uppercase}
+.lede{font-weight:250;font-size:clamp(18px,2.1vw,26px);line-height:1.3;letter-spacing:-.01em;color:var(--nav);max-width:58ch}
+.lede strong{font-weight:400;color:#fff}
+.p{font-weight:300;font-size:16px;line-height:1.6;color:var(--nav);max-width:68ch}
+.p strong{font-weight:500;color:#fff}
+.label{font-family:"JBMono",ui-monospace,Menlo,monospace;font-size:11.37px;letter-spacing:-.268px;color:var(--dim);text-transform:uppercase;margin-bottom:10px}
+.mono{font-family:"JBMono",ui-monospace,Menlo,monospace}
+.lnk{color:#fff;background:linear-gradient(var(--lilac),var(--lilac)) 0 100%/0 1px no-repeat;transition:background-size .3s cubic-bezier(.16,1,.3,1);padding-bottom:2px}
+.lnk:hover{background-size:100% 1px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:"JBMono",ui-monospace,Menlo,monospace;font-size:11.37px;letter-spacing:-.268px;color:var(--cream);border:1px solid #2b2b2b;border-radius:2px;padding:5px 8px;white-space:nowrap}
+.chip.l{background:var(--lilac);color:var(--ink);border-color:var(--lilac)}
+
+/* rows: label column + content column */
+.row{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;padding:clamp(24px,3vw,36px) 0;border-bottom:1px solid var(--line)}
+@media (min-width:860px){.row{grid-template-columns:280px minmax(0,1fr);gap:40px}}
+.row h3{font-weight:290;font-size:clamp(20px,2.2vw,26px);line-height:1.15;letter-spacing:-.02em;text-transform:uppercase}
+.row .when{font-family:"JBMono",ui-monospace,Menlo,monospace;font-size:11.37px;color:var(--dim);margin-top:8px;letter-spacing:-.268px}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(28px,5vw,64px);padding-top:clamp(28px,4vw,48px)}
+@media (min-width:900px){.about{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}}
+.portrait{position:relative;aspect-ratio:4/5;overflow:hidden;background:#b89a80;border-radius:2px}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.portrait figcaption{position:absolute;left:12px;bottom:12px;right:12px;display:flex;justify-content:space-between;font-family:"JBMono",ui-monospace,Menlo,monospace;font-size:11.37px;color:var(--cream);letter-spacing:-.268px}
+.about-copy{display:flex;flex-direction:column;gap:28px}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line)}
+@media (min-width:640px){.facts{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.fact{padding:18px 14px 18px 0;border-bottom:1px solid var(--line)}
+.fact .n{font-weight:290;font-size:clamp(30px,3.4vw,44px);line-height:1;letter-spacing:-.04em}
+.fact .t{font-family:"JBMono",ui-monospace,Menlo,monospace;font-size:11px;color:var(--dim);margin-top:10px;line-height:1.35;letter-spacing:-.25px}
+.duo{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+@media (min-width:640px){.duo{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:minmax(0,1fr)}
+@media (min-width:700px){.skills{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px}}
+@media (min-width:1080px){.skills{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.sk{padding:24px 0;border-bottom:1px solid var(--line)}
+.sk h3{font-weight:290;font-size:20px;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:14px}
+
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:6px;padding:22px 0 6px}
+.filters button{font:inherit;font-family:"JBMono",ui-monospace,Menlo,monospace;font-size:11.37px;letter-spacing:-.268px;color:var(--nav);background:none;border:1px solid #2b2b2b;border-radius:2px;padding:8px 10px;cursor:pointer;min-height:36px;text-transform:uppercase}
+.filters button[aria-pressed="true"]{background:var(--lilac);border-color:var(--lilac);color:var(--ink)}
+.proj{border-bottom:1px solid var(--line)}
+.proj[hidden]{display:none}
+.proj summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:baseline;padding:22px 0;-webkit-tap-highlight-color:transparent}
+.proj summary::-webkit-details-marker{display:none}
+.proj .no{font-family:"JBMono",ui-monospace,Menlo,monospace;font-size:11.37px;color:var(--dim)}
+.proj .nm{font-weight:290;font-size:clamp(21px,3vw,38px);line-height:1.05;letter-spacing:-.03em;text-transform:uppercase;transition:color .2s}
+.proj .meta{display:block;font-family:"JBMono",ui-monospace,Menlo,monospace;font-size:11.37px;color:var(--dim);letter-spacing:-.268px;margin-top:8px;text-transform:uppercase}
+.proj .meta em{font-style:normal;color:var(--lilac)}
+.proj .pm{position:relative;width:14px;height:14px;align-self:center}
+.proj .pm::before,.proj .pm::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--nav);transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.proj .pm::after{transform:rotate(90deg)}
+.proj[open] .pm::after{transform:rotate(0)}
+.proj summary:hover .nm{color:var(--lilac)}
+.pbody{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;padding:4px 0 36px}
+@media (min-width:860px){.pbody{grid-template-columns:44px minmax(0,7fr) minmax(0,4fr);column-gap:14px}.pbody>.main{grid-column:2}.pbody>.side{grid-column:3}}
+.pbody .main{display:flex;flex-direction:column;gap:22px}
+.pbody .side{display:flex;flex-direction:column;gap:22px}
+.pbody ul.b{display:flex;flex-direction:column;gap:8px}
+.pbody ul.b li{position:relative;padding-left:16px;font-weight:300;font-size:15.5px;line-height:1.55;color:var(--nav)}
+.pbody ul.b li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:1px;background:var(--lilac)}
+.pbody ul.b li strong{font-weight:500;color:#fff}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;background:var(--lilac);color:var(--ink);border-radius:2px;font-weight:280;font-size:14.286px;letter-spacing:-.4px;transition:filter .15s;white-space:nowrap}
+.btn:hover{filter:brightness(1.06)}
+.btn svg{width:10px;height:10px;flex:none}
+.btn.ghost{background:none;color:#fff;border:1px solid #333}
+.btn.ghost:hover{border-color:var(--lilac);filter:none}
+.metric{font-weight:290;font-size:clamp(28px,3vw,38px);line-height:1;letter-spacing:-.04em}
+.metric small{display:block;font-family:"JBMono",ui-monospace,Menlo,monospace;font-size:11px;color:var(--dim);letter-spacing:-.25px;margin-top:8px;line-height:1.4}
+
+/* list grid (certs, achievements, profiles) */
+.grid{display:grid;grid-template-columns:minmax(0,1fr)}
+@media (min-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px}}
+.cell{padding:24px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.cell h3{font-weight:290;font-size:clamp(20px,2vw,24px);line-height:1.15;letter-spacing:-.02em;text-transform:uppercase}
+
+/* contact */
+.contact{padding-bottom:0}
+.big{display:block;font-weight:290;font-size:clamp(28px,7.4vw,104px);line-height:1;letter-spacing:-.045em;word-break:break-word;margin:clamp(28px,4vw,48px) 0}
+.big:hover{color:var(--lilac)}
+.foot{max-width:1280px;margin:clamp(72px,9vw,120px) auto 0;padding:22px var(--gut) calc(22px + env(safe-area-inset-bottom));border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-family:"JBMono",ui-monospace,Menlo,monospace;font-size:11.37px;color:var(--dim);letter-spacing:-.268px}
+
+/* reveal */
+.js-rv .rv{opacity:0;transform:translateY(14px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.js-rv .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js-rv .rv{opacity:1;transform:none;transition:none}}
+</style>
+
+<main class="stage" id="stage">
+  <video class="photo" id="photo" width="1920" height="1080" poster="assets/hero-poster.jpg"
+         autoplay muted loop playsinline preload="auto" aria-hidden="true" disablepictureinpicture>
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
+  <div class="lift" aria-hidden="true"></div>
+  <div class="shade" aria-hidden="true"></div>
+
+  <header class="band" aria-label="Brungi Shiva Ganesh">
+    <span class="band-top"></span>
+    <span></span>
+    <h1><span class="sr">Brungi Shiva Ganesh</span>
+      <svg viewBox="0 120 1280 190" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path fill="#000" fill-rule="evenodd" d="M-4 116H1284V314H-4ZM7 293V141.64H170.37Q185.95 141.64 198.78 146.37Q211.62 151.1 219.18 159.46Q226.75 167.82 226.75 178.82Q226.75 189.82 222.07 196.86Q217.4 203.9 209.57 207.97Q201.74 212.04 192.37 214.02V214.9Q203.12 216.66 211.91 220.95Q220.7 225.24 225.92 232.94Q231.15 240.64 231.15 252.74Q231.15 264.84 223.31 273.86Q215.47 282.88 201.99 287.94Q188.52 293 172.02 293ZM74.93 257.8H144.79Q152.31 257.8 156.94 254.28Q161.57 250.76 161.57 243.72Q161.57 240.42 159.44 237.67Q157.32 234.92 153.47 233.38Q149.62 231.84 144.79 231.84H74.93ZM74.93 200.6H140.39Q145.72 200.6 149.38 198.95Q153.04 197.3 155.1 194.22Q157.17 191.14 157.17 186.52Q157.17 181.68 152.28 178.27Q147.39 174.86 140.39 174.86H74.93ZM235.15 293V141.64H399.06Q420.24 141.64 434.41 148.68Q448.57 155.72 455.72 167.16Q462.87 178.6 462.87 191.8Q462.87 206.98 454.48 218.75Q446.09 230.52 429.87 237.56L467.27 293H390.54L361.94 245.7H303.08V293ZM303.08 208.08H375.14Q382.84 208.08 388.06 204.23Q393.29 200.38 393.29 193.56Q393.29 188.94 390.81 185.75Q388.34 182.56 384.35 180.91Q380.36 179.26 375.14 179.26H303.08ZM586.78 295.64Q547.73 295.64 522.15 286.95Q496.57 278.26 483.92 261.43Q471.27 244.6 471.27 220.18V141.64H539.2V217.76Q539.2 236.68 551.72 247.24Q564.23 257.8 586.78 257.8Q609.61 257.8 622.12 247.24Q634.64 236.68 634.64 217.76V141.64H702.57V220.18Q702.57 244.6 689.92 261.43Q677.27 278.26 651.55 286.95Q625.84 295.64 586.78 295.64ZM706.57 293V141.64H765.7L859.21 204.78Q860.86 205.88 863.89 208.08Q866.91 210.28 870.21 212.7Q873.51 215.12 876.26 217.1H879.01Q879.01 214.02 879.01 208.85Q879.01 203.68 879.01 198.84V141.64H942.82V293H884.24L795.4 233.38Q789.63 229.64 783.16 225.02Q776.7 220.4 772.85 217.54H770.38Q770.38 220.62 770.38 226.23Q770.38 231.84 770.38 237.56V293ZM1062.05 295.64Q1004.57 295.64 975.7 276.28Q946.82 256.92 946.82 217.32Q946.82 191.36 962.08 173.98Q977.35 156.6 1006.22 147.8Q1035.1 139 1075.81 139Q1100.01 139 1121.32 142.63Q1142.64 146.26 1159 153.41Q1175.37 160.56 1184.58 171.34Q1193.79 182.12 1193.79 196.42H1127.79Q1127.79 191.8 1123.94 188.06Q1120.09 184.32 1113.21 181.79Q1106.33 179.26 1097.53 177.94Q1088.73 176.62 1078.83 176.62Q1063.15 176.62 1051.47 179.15Q1039.78 181.68 1031.94 186.63Q1024.1 191.58 1020.25 198.62Q1016.4 205.66 1016.4 214.68V219.96Q1016.4 232.94 1022.86 241.41Q1029.33 249.88 1042.25 253.95Q1055.18 258.02 1074.71 258.02Q1088.73 258.02 1100.83 256.04Q1112.93 254.06 1120.22 249.99Q1127.51 245.92 1127.51 240.2V239.32H1070.03V208.52H1194.07V293H1155.56L1149.51 276.28Q1138.51 282.66 1125.31 287.06Q1112.11 291.46 1096.43 293.55Q1080.76 295.64 1062.05 295.64ZM1198.07 293V141.64H1266V293Z"/>
+        <g fill="#000" aria-hidden="true">
+          <rect class="lid" x="6" y="136" width="226" height="160"/>
+          <rect class="lid" x="234" y="136" width="234" height="160"/>
+          <rect class="lid" x="470" y="136" width="233" height="160"/>
+          <rect class="lid" x="706" y="136" width="238" height="160"/>
+          <rect class="lid" x="946" y="136" width="249" height="160"/>
+          <rect class="lid" x="1197" y="136" width="70" height="160"/>
+        </g>
+      </svg>
+    </h1>
+    <span></span>
+    <span class="band-bot"></span>
+  </header>
+
+  <nav class="nav" aria-label="Main">
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks"><i aria-hidden="true"></i><span class="menu-label">MENU</span></button>
+    <div class="nav-links" id="navLinks">
+      <ul class="col" style="left:calc(7 * var(--u));top:calc(10.5 * var(--u))">
+        <li><a href="#stage" style="--ls:-1.966">HOME</a></li>
+        <li><a href="#about" style="--ls:-1.399">ABOUT</a></li>
+        <li><a href="#projects" style="--ls:-1.139">PROJECTS</a></li>
+      </ul>
+      <ul class="col" style="left:calc(117 * var(--u));top:calc(10.5 * var(--u))">
+        <li><a href="#education" style="--ls:-1.083">EDUCATION</a></li>
+        <li><a href="#skills" style="--ls:-1.152">SKILLS</a></li>
+        <li><a href="#research" style="--ls:-1.083">RESEARCH</a></li>
+      </ul>
+      <ul class="col" style="left:calc(241 * var(--u));top:calc(10.5 * var(--u))">
+        <li><a href="#achievements" style="--ls:-1.083">ACHIEVEMENTS</a></li>
+        <li><a href="#certifications" style="--ls:-0.816">CERTIFICATIONS</a></li>
+        <li><a href="#contact" style="--ls:-1.154">CONTACT</a></li>
+      </ul>
+    </div>
+    <p class="tagline">AI · CLOUD · FULL STACK ENGINEER</p>
+    <a class="cta" href="assets/Brungi_Shiva_Ganesh_Resume.pdf" download>
+      <svg viewBox="0 0 9 9" aria-hidden="true"><path d="M1.6 .4V6H6.2" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="M5.6 3.6 8.6 6 5.6 8.4Z" fill="currentColor"/></svg>
+      <span><b style="letter-spacing:calc(-1.519 * var(--cu))">DOWNLOAD</b> <b style="letter-spacing:calc(-1.877 * var(--cu))">MY</b> <b style="letter-spacing:calc(-1.042 * var(--cu))">RESUME</b></span>
+    </a>
+  </nav>
+
+  <section class="copy" aria-label="Introduction">
+    <p class="headline">BUILDING AI THAT SEES AND SCALES</p>
+    <div class="tp" role="group" aria-label="Profiles">
+      <svg viewBox="0 0 16 19" aria-hidden="true">
+        <path fill="#DEC1FC" d="M8 0.9L9.796 6.428L15.608 6.428L10.906 9.844L12.702 15.372L8 11.956L3.298 15.372L5.094 9.844L0.392 6.428L6.204 6.428Z"/>
+      </svg>
+      <span class="tp-word" aria-hidden="true">Connect</span>
+      <a class="tile" style="left:calc(75 * var(--tb))" href="https://github.com/shivv-14" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg></a>
+      <a class="tile" style="left:calc(92 * var(--tb))" href="https://www.linkedin.com/in/brungi-shiva-ganesh/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M1.2 5.3h3v9.5h-3zM2.7.6a1.75 1.75 0 1 1 0 3.5 1.75 1.75 0 0 1 0-3.5zM6.1 5.3H9v1.3h.04c.4-.76 1.38-1.56 2.85-1.56 3.05 0 3.61 2 3.61 4.6v5.16h-3V10.2c0-1.1-.02-2.5-1.53-2.5-1.53 0-1.76 1.2-1.76 2.42v4.68h-3z"/></svg></a>
+      <a class="tile" style="left:calc(109 * var(--tb))" href="mailto:brungishivaganesh@gmail.com" aria-label="Email brungishivaganesh@gmail.com"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M1.5 3.5h13v9h-13zM1.5 3.5 8 9l6.5-5.5"/></svg></a>
+      <a class="tile" style="left:calc(126 * var(--tb))" href="#contact" aria-label="Contact section"><svg viewBox="0 0 9 9" aria-hidden="true"><path d="M1.6 .4V6H6.2" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="M5.6 3.6 8.6 6 5.6 8.4Z" fill="currentColor"/></svg></a>
+      <span class="tp-meta" aria-hidden="true">Open to internships</span>
+    </div>
+  </section>
+</main>
+
+<!-- ======================= 01 ABOUT ======================= -->
+<section class="sec" id="about" aria-labelledby="about-h">
+  <div class="sec-head rv">
+    <p class="idx"><b>01</b> / About me</p>
+    <h2 class="h2" id="about-h">Brungi Shiva Ganesh</h2>
+    <p class="lede">B.Tech Computer Science &amp; Engineering (Data Science) at <strong>NMIMS, Hyderabad</strong>. I build end-to-end systems where machine learning meets the cloud: computer-vision models that run on live video, AI services behind clean APIs, and serverless backends deployed on AWS.</p>
+  </div>
+  <div class="about">
+    <figure class="portrait rv">
+      <img src="assets/portrait.jpg" alt="Brungi Shiva Ganesh in a black suit and turtleneck" width="1200" height="1500" decoding="async">
+      <figcaption><span>HYDERABAD, IN</span><span>CLASS OF 2027</span></figcaption>
+    </figure>
+    <div class="about-copy">
+      <div class="facts rv">
+        <div class="fact"><div class="n">#1</div><div class="t">of 19 teams — Capgemini AI4 Health Hackathon</div></div>
+        <div class="fact"><div class="n">~98%</div><div class="t">validation accuracy — YOLO-LSTM boxing classifier</div></div>
+        <div class="fact"><div class="n">0.846</div><div class="t">macro-F1 on unseen writers — stylometry study</div></div>
+        <div class="fact"><div class="n">1</div><div class="t">conference paper presented — IICTDS 2025</div></div>
+      </div>
+      <div class="rv">
+        <p class="label">Career objective</p>
+        <p class="p">To join an engineering team as an <strong>intern or graduate engineer in AI/ML, computer vision, cloud or full stack development</strong>, where I can ship production systems, learn from strong engineers and take ownership of features from model to deployment.</p>
+      </div>
+      <div class="duo rv">
+        <div>
+          <p class="label">Specialisation</p>
+          <p class="p">Computer vision and deep learning (detection, pose estimation, sequence models), applied NLP and speech, and AWS serverless architectures.</p>
+        </div>
+        <div>
+          <p class="label">Technical interests</p>
+          <p class="p">Real-time inference, AI in healthcare, media authenticity and digital signatures, emotion-aware speech, and honest model evaluation.</p>
+        </div>
+        <div>
+          <p class="label">How I solve problems</p>
+          <p class="p">Start from the user's problem, get a thin pipeline working end to end, measure it honestly against baselines and held-out data, then optimise the part that matters — TensorRT inference, sliced detection for small faces, writer-separated splits to stop leakage.</p>
+        </div>
+        <div>
+          <p class="label">Where I'm heading</p>
+          <p class="p">Growing into an ML / AI engineer who builds reliable, deployable AI products — models that are tested, explained and running in the cloud, not just in a notebook.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 02 EDUCATION ======================= -->
+<section class="sec" id="education" aria-labelledby="edu-h">
+  <div class="sec-head rv">
+    <p class="idx"><b>02</b> / Education</p>
+    <h2 class="h2" id="edu-h">Education</h2>
+  </div>
+  <div class="row rv">
+    <div><h3>STME, NMIMS University</h3><p class="when">HYDERABAD · 2023 — 2027</p></div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <p class="p"><strong>B.Tech in Computer Science &amp; Engineering (Data Science)</strong>. Active in technical projects, research presentation and hackathon competitions.</p>
+      <div><p class="label">Relevant coursework</p>
+        <div class="chips"><span class="chip">Data Structures &amp; Algorithms</span><span class="chip">Database Management Systems</span><span class="chip">Cloud Computing</span><span class="chip">Machine Learning</span><span class="chip">Data Science</span><span class="chip">Full Stack Development</span><span class="chip">OOP</span></div></div>
+      <div><p class="label">Academic highlights</p>
+        <p class="p">Winner, AI4 Health Hackathon (judged by Capgemini) · Co-author and presenter, IICTDS 2025 · Solo capstone: FieldSense AI.</p></div>
+    </div>
+  </div>
+  <div class="row rv">
+    <div><h3>Sri Guru Junior College</h3><p class="when">IBRAHIMPATNAM, HYDERABAD · 2021 — 2023</p></div>
+    <p class="p"><strong>Intermediate (MPC) — 89%</strong>. Built a strong analytical and mathematical foundation.</p>
+  </div>
+  <div class="row rv">
+    <div><h3>Chaitanya Central School (CBSE)</h3><p class="when">MAHABUBNAGAR · 2013 — 2021</p></div>
+    <p class="p">Completed the CBSE curriculum with a balanced focus on academics, cultural participation and sports.</p>
+  </div>
+</section>
+
+<!-- ======================= 03 SKILLS ======================= -->
+<section class="sec" id="skills" aria-labelledby="sk-h">
+  <div class="sec-head rv">
+    <p class="idx"><b>03</b> / Technical skills</p>
+    <h2 class="h2" id="sk-h">Skills</h2>
+    <p class="lede">Every skill here is used in at least one project below.</p>
+  </div>
+  <div class="skills">
+    <div class="sk rv"><h3>Languages</h3><div class="chips"><span class="chip l">Python</span><span class="chip">C++</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">SQL</span><span class="chip">PHP</span></div></div>
+    <div class="sk rv"><h3>Core concepts</h3><div class="chips"><span class="chip">Data Structures &amp; Algorithms</span><span class="chip">OOP</span><span class="chip">DBMS</span><span class="chip">REST APIs</span><span class="chip">Problem solving</span></div></div>
+    <div class="sk rv"><h3>Machine &amp; deep learning</h3><div class="chips"><span class="chip l">PyTorch</span><span class="chip l">TensorFlow</span><span class="chip">Keras</span><span class="chip">scikit-learn</span><span class="chip">LSTM</span><span class="chip">CNN / DenseNet</span><span class="chip">CUDA · TensorRT</span></div></div>
+    <div class="sk rv"><h3>Computer vision</h3><div class="chips"><span class="chip l">OpenCV</span><span class="chip l">YOLO (Ultralytics)</span><span class="chip">YOLOv10 / v11</span><span class="chip">Pose estimation</span><span class="chip">SAHI sliced inference</span><span class="chip">Haar + LBPH</span><span class="chip">Perceptual hashing</span></div></div>
+    <div class="sk rv"><h3>NLP &amp; speech</h3><div class="chips"><span class="chip">spaCy</span><span class="chip">Char n-gram TF-IDF</span><span class="chip">Stylometry</span><span class="chip">XTTS-v2</span><span class="chip">Emotion &amp; language detection</span></div></div>
+    <div class="sk rv"><h3>Cloud &amp; DevOps</h3><div class="chips"><span class="chip l">AWS</span><span class="chip">EC2</span><span class="chip">Lambda</span><span class="chip">API Gateway</span><span class="chip">DynamoDB</span><span class="chip">S3</span><span class="chip">RDS</span><span class="chip">Cognito</span><span class="chip">Google Cloud</span><span class="chip">Firebase</span><span class="chip">Docker</span><span class="chip">Nginx</span><span class="chip">systemd</span><span class="chip">Vercel</span><span class="chip">Render</span></div></div>
+    <div class="sk rv"><h3>Backend</h3><div class="chips"><span class="chip l">FastAPI</span><span class="chip">Flask</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">PHP (MVC)</span><span class="chip">Server-Sent Events</span><span class="chip">JWT · RBAC</span></div></div>
+    <div class="sk rv"><h3>Frontend</h3><div class="chips"><span class="chip l">React</span><span class="chip">Next.js</span><span class="chip">Vite</span><span class="chip">Tailwind CSS</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Chrome extensions</span><span class="chip">Streamlit</span></div></div>
+    <div class="sk rv"><h3>Databases</h3><div class="chips"><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">SQLite</span><span class="chip">DynamoDB</span><span class="chip">Firebase Firestore</span></div></div>
+    <div class="sk rv"><h3>Testing &amp; tools</h3><div class="chips"><span class="chip">Git · GitHub</span><span class="chip">GitHub Actions</span><span class="chip">Playwright</span><span class="chip">Vitest</span><span class="chip">pytest</span><span class="chip">Postman</span><span class="chip">VS Code</span><span class="chip">Power BI</span><span class="chip">Excel</span><span class="chip">Unity</span><span class="chip">Blender</span></div></div>
+    <div class="sk rv"><h3>Soft skills</h3><div class="chips"><span class="chip">Leadership</span><span class="chip">Teamwork</span><span class="chip">Research &amp; technical presentation</span><span class="chip">Event organisation</span></div></div>
+    <div class="sk rv"><h3>Currently learning</h3><div class="chips"><span class="chip l">Blockchain fundamentals</span><span class="chip l">Solidity smart contracts</span></div></div>
+  </div>
+</section>
+
+<!-- ======================= 04 PROJECTS ======================= -->
+<section class="sec" id="projects" aria-labelledby="pr-h">
+  <div class="sec-head rv">
+    <p class="idx"><b>04</b> / Selected work</p>
+    <h2 class="h2" id="pr-h">Projects</h2>
+    <p class="lede">Solo work and team work are labelled on every project. Metrics are only shown where they were measured.</p>
+  </div>
+  <div class="filters" role="group" aria-label="Filter projects">
+    <button type="button" data-f="all" aria-pressed="true">All</button>
+    <button type="button" data-f="ai" aria-pressed="false">AI / ML</button>
+    <button type="button" data-f="cv" aria-pressed="false">Computer vision</button>
+    <button type="button" data-f="cloud" aria-pressed="false">Cloud</button>
+    <button type="button" data-f="web" aria-pressed="false">Full stack / Web</button>
+  </div>
+  <div id="projList">
+<details class="proj rv" data-c="cloud cv">
+<summary><span class="no">01</span><span><span class="nm">Video Content Authenticator (VCA)</span><span class="meta">Security · Cloud · 2026 — Present · <em>Project</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">Videos are re-encoded, cropped and re-uploaded across social platforms, so a plain file hash cannot tell whether a clip is still the original.</p></div>
+<div><p class="label">Solution</p><p class="p">An end-to-end authenticity system that signs videos at the source and verifies them anywhere, including after re-encoding.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li><strong>SHA-256</strong> hashing for exact integrity, plus perceptual <strong>dHash</strong> analysis of frames (OpenCV) so verification survives re-encoded media.</li><li><strong>Ed25519 digital signatures</strong> with a <strong>zero-trust</strong> design: keys are generated client-side and never leave the user.</li><li><strong>FastAPI</strong> backend with SQLite, deployed on <strong>AWS EC2</strong> behind HTTPS (Nginx, systemd), with <strong>AWS Cognito</strong> authentication.</li><li>A <strong>Chrome extension</strong> verifies videos in real time while browsing Instagram and LinkedIn.</li></ul></div>
+<div><p class="label">Challenge &amp; solution</p><p class="p">Exact hashes break as soon as a platform re-encodes a file; combining a cryptographic hash with perceptual frame hashes keeps verification working on re-encoded copies.</p></div>
+</div><div class="side">
+<div><p class="label">My contribution</p><p class="p">Built the system end to end: hashing and signature pipeline, FastAPI backend, AWS deployment and the Chrome extension.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">FastAPI</span><span class="chip">OpenCV</span><span class="chip">SQLite</span><span class="chip">Ed25519</span><span class="chip">SHA-256 · dHash</span><span class="chip">AWS EC2</span><span class="chip">Nginx</span><span class="chip">systemd</span><span class="chip">Cognito</span><span class="chip">Chrome extension</span></div></div>
+</div></div></details>
+<details class="proj rv" data-c="ai cloud web">
+<summary><span class="no">02</span><span><span class="nm">FieldSense AI</span><span class="meta">AI · Full stack · 2026 · <em>Solo capstone</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">Independent trades businesses (plumbing, electrical, HVAC, handyman, landscaping) quote jobs by guesswork, and an unchecked AI estimate can reach a customer with the wrong price.</p></div>
+<div><p class="label">Solution</p><p class="p">Confidence-gated job estimation: a job is taken in as text and photo, classified, compared with the business's own past jobs, and given a grounded price and duration estimate. Low-confidence estimates are held for owner review before any customer sees them.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li><strong>apps/api</strong> — Node, Express and TypeScript REST API with auth, <strong>role-based access</strong> (owner, technician, admin), job lifecycle and routing.</li><li><strong>apps/web</strong> — React, TypeScript, Vite and Tailwind frontend for each role.</li><li><strong>services/ai</strong> — Python FastAPI service for classification, embeddings and the confidence model; comparable-job retrieval over the historical job corpus.</li><li><strong>Firebase</strong> Firestore, Auth and Storage, developed emulator-first.</li><li>Tested with <strong>Playwright</strong> end to end (login, photo job submission, role access, routing, retrieval), Node's test runner for the confidence gate and state machine, and <strong>Vitest</strong> on the frontend.</li></ul></div>
+<div><p class="label">Data</p><p class="p">A cleaned real public dataset plus synthetic historical job records, with train/test splits.</p></div>
+</div><div class="side">
+<div><p class="label">My contribution</p><p class="p">Solo: architecture, API, frontend, AI service, data pipeline and tests, run on a 12-week roadmap with milestone tags.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Tailwind</span><span class="chip">FastAPI</span><span class="chip">Python</span><span class="chip">Firebase</span><span class="chip">Playwright</span><span class="chip">Vitest</span></div></div>
+<div class="links"><a class="btn" href="https://github.com/shivv-14/FieldSense-AI" target="_blank" rel="noopener"><svg viewBox="0 0 9 9" aria-hidden="true"><path d="M1.6 .4V6H6.2" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="M5.6 3.6 8.6 6 5.6 8.4Z" fill="currentColor"/></svg>Repository</a></div>
+</div></div></details>
+<details class="proj rv" data-c="ai web">
+<summary><span class="no">03</span><span><span class="nm">VocaSense</span><span class="meta">AI · Speech · Full stack · 2026 · <em>Personal project</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">Text-to-speech usually speaks every sentence in the same flat tone and a fixed voice.</p></div>
+<div><p class="label">Solution</p><p class="p">An emotion-aware, multilingual voice studio: type text, choose a voice, and each sentence is spoken in that voice with delivery that matches its detected language and emotion.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li>Voice cloning from an uploaded clip or a browser recording (10–20 s), or one of 4 built-in <strong>XTTS-v2</strong> voices.</li><li>Per-sentence detection of <strong>8 emotions</strong> and <strong>17 languages</strong>, so English and Hindi can be mixed in one paragraph.</li><li>Node/Express REST + <strong>Server-Sent Events</strong> for live progress; a one-at-a-time job queue because the GPU is shared; SQLite for history.</li><li>FastAPI service: sentence splitter, language and emotion models, voice latent cache, XTTS-v2 synthesis and prosody shaping.</li><li>Responsible use: consent is required to clone a voice and every output is labelled AI-generated.</li></ul></div>
+<div><p class="label">Limitations &amp; next steps</p><p class="p">Scripts the model does not support, such as Telugu and Tamil, return a clear message instead of bad audio.</p></div>
+</div><div class="side">
+<div><p class="label">My contribution</p><p class="p">Built the React client, the Node server with its job queue and the Python AI service.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">SSE</span><span class="chip">SQLite</span><span class="chip">FastAPI</span><span class="chip">Python</span><span class="chip">XTTS-v2</span></div></div>
+<div class="links"><a class="btn" href="https://github.com/shivv-14/VocaSense" target="_blank" rel="noopener"><svg viewBox="0 0 9 9" aria-hidden="true"><path d="M1.6 .4V6H6.2" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="M5.6 3.6 8.6 6 5.6 8.4Z" fill="currentColor"/></svg>Repository</a></div>
+</div></div></details>
+<details class="proj rv" data-c="ai cv">
+<summary><span class="no">04</span><span><span class="nm">Hybrid YOLO-LSTM Boxing Action Classifier</span><span class="meta">Computer vision · Deep learning · 2026 · <em>Personal project</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">Recognising punches and blocks from live video needs both body pose and how it changes over time; single-frame detectors miss the motion.</p></div>
+<div><p class="label">Solution</p><p class="p">A hybrid pipeline: YOLOv11 pose estimation extracts keypoints per frame, and an LSTM classifies the keypoint sequences into boxing actions in real time.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li><strong>YOLOv11 pose estimation</strong> produces per-frame body keypoints from live video.</li><li><strong>LSTM</strong> sequence models classify punches and blocks from keypoint windows.</li><li>Served as a <strong>Flask</strong> web app with <strong>CUDA / TensorRT</strong>-optimised inference for real-time use.</li></ul></div>
+</div><div class="side">
+<div><p class="label">Result</p><p class="metric">~98%<small>validation accuracy · AUC = 1.0 across classes</small></p></div>
+<div><p class="label">My contribution</p><p class="p">Built the full pipeline: pose extraction, sequence model, training, evaluation and the Flask deployment.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">Python</span><span class="chip">YOLOv11</span><span class="chip">LSTM</span><span class="chip">PyTorch</span><span class="chip">OpenCV</span><span class="chip">Flask</span><span class="chip">CUDA</span><span class="chip">TensorRT</span></div></div>
+</div></div></details>
+<details class="proj rv" data-c="ai cv web">
+<summary><span class="no">05</span><span><span class="nm">AI-Powered Chest X-ray Disease Detection</span><span class="meta">Healthcare AI · Hackathon · 2025 · <em>Team · Capgemini AI4 Health Hackathon</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">Reading chest X-rays takes specialist time; a model that flags likely diseases with a probability can help triage.</p></div>
+<div><p class="label">Solution</p><p class="p">A deep learning model that predicts diseases from chest X-ray images with probability scores, inside a working healthcare app prototype.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li>Deep learning model trained in <strong>Python</strong> (Keras / TensorFlow, saved as .h5).</li><li><strong>React</strong> front end and <strong>Node.js</strong> backend that run the model and show disease probabilities.</li></ul></div>
+</div><div class="side">
+<div><p class="label">Result</p><p class="metric">Rank 1<small>of 19 teams · national-level, judged by Capgemini</small></p></div>
+<div><p class="label">My contribution</p><p class="p">Trained the deep learning model in Python and integrated the .h5 models into the React + Node.js prototype with probability scoring.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">Python</span><span class="chip">TensorFlow</span><span class="chip">Keras</span><span class="chip">React</span><span class="chip">Node.js</span></div></div>
+</div></div></details>
+<details class="proj rv" data-c="ai">
+<summary><span class="no">06</span><span><span class="nm">Native or Non-Native? Stylometric Writer Classification</span><span class="meta">NLP · Research · 2026 · <em>Personal research project</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">Can an anonymous English passage be classified as written by a native or non-native writer from style alone — and does it hold for writers the model has never seen?</p></div>
+<div><p class="label">Solution</p><p class="p">A reproducible pipeline comparing handcrafted linguistic features with character n-grams, evaluated with writer-separated splits, plus a Streamlit app that explains each prediction.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li>Handcrafted spaCy features (sentence length, vocabulary richness, function words, POS, punctuation) vs. <strong>character 3–5-gram TF-IDF</strong>.</li><li><strong>Logistic Regression</strong> and calibrated <strong>Linear SVM</strong> with grouped cross-validation; writer-separated splits over 5 seeds.</li><li>Majority and length-only baselines, a document-level split to measure writer leakage, and a feature-group ablation.</li><li>pytest suite with CI on <strong>GitHub Actions</strong>; results tables are generated from results.csv, never typed by hand.</li></ul></div>
+<div><p class="label">Data</p><p class="p">W&amp;I + LOCNESS (BEA-2019). ICNALE is supported as the recommended corpus. No synthetic data.</p></div>
+<div><p class="label">Limitations &amp; next steps</p><p class="p">In W&amp;I + LOCNESS, only 50 native essays exist and the two groups wrote on different prompts, so topic is confounded with the label. The app is a research demo, not a judgement about any person.</p></div>
+</div><div class="side">
+<div><p class="label">Result</p><p class="metric">0.846<small>macro-F1 ± 0.064 on unseen writers · ROC-AUC 0.895</small></p></div>
+<div><p class="label">My contribution</p><p class="p">Designed the study, the data pipeline, models, experiments, tests and the app.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">spaCy</span><span class="chip">Streamlit</span><span class="chip">pytest</span><span class="chip">GitHub Actions</span></div></div>
+<div class="links"><a class="btn" href="https://github.com/shivv-14/stylometry-native-classifier" target="_blank" rel="noopener"><svg viewBox="0 0 9 9" aria-hidden="true"><path d="M1.6 .4V6H6.2" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="M5.6 3.6 8.6 6 5.6 8.4Z" fill="currentColor"/></svg>Repository</a></div>
+</div></div></details>
+<details class="proj rv" data-c="cloud web">
+<summary><span class="no">07</span><span><span class="nm">Hackathon Platform — Serverless Cloud System</span><span class="meta">Cloud · Full stack · 2026 · <em>Project</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">Hackathon organisers need one secure place to manage participants, data and progress, without running servers.</p></div>
+<div><p class="label">Solution</p><p class="p">An event-driven serverless platform with real-time dashboards for hackathon management.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li>Event-driven backend on <strong>AWS Lambda</strong>, <strong>API Gateway</strong> and <strong>DynamoDB</strong> for scalable, low-latency API operations.</li><li>Secure authentication with <strong>AWS Cognito</strong> and <strong>JWT</strong>.</li><li>Real-time dashboards in <strong>React.js</strong>, with Node.js.</li></ul></div>
+</div><div class="side">
+<div><p class="label">My contribution</p><p class="p">Built the serverless backend and the React dashboards.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">AWS Lambda</span><span class="chip">API Gateway</span><span class="chip">DynamoDB</span><span class="chip">Cognito</span><span class="chip">JWT</span><span class="chip">React</span><span class="chip">Node.js</span></div></div>
+</div></div></details>
+<details class="proj rv" data-c="cloud web">
+<summary><span class="no">08</span><span><span class="nm">Cloud-Based Student Result Management System</span><span class="meta">Cloud · Full stack · 2026 · <em>Project</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">Student academic records and semester results need secure, role-specific access.</p></div>
+<div><p class="label">Solution</p><p class="p">A cloud system where students view their results and administrators manage records.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li>Serverless backend on <strong>AWS Lambda</strong>, <strong>API Gateway</strong> and <strong>DynamoDB</strong>.</li><li><strong>Cognito</strong> role-based access for students and administrators.</li><li>React.js front end with Node.js, deployed on AWS.</li></ul></div>
+</div><div class="side">
+<div><p class="label">My contribution</p><p class="p">Built the serverless backend, role-based access and the React front end, and deployed it on AWS.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">AWS Lambda</span><span class="chip">API Gateway</span><span class="chip">DynamoDB</span><span class="chip">Cognito</span><span class="chip">React</span><span class="chip">Node.js</span></div></div>
+<div class="links"><a class="btn" href="https://github.com/shivv-14/Result-Cloud" target="_blank" rel="noopener"><svg viewBox="0 0 9 9" aria-hidden="true"><path d="M1.6 .4V6H6.2" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="M5.6 3.6 8.6 6 5.6 8.4Z" fill="currentColor"/></svg>Repository</a></div>
+</div></div></details>
+<details class="proj rv" data-c="ai cv">
+<summary><span class="no">09</span><span><span class="nm">Night Blindness Assistance System</span><span class="meta">Computer vision · Assistive tech · 2026 · <em>Solo project</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">People with night blindness struggle to see obstacles in low light.</p></div>
+<div><p class="label">Solution</p><p class="p">A prototype that watches a live camera feed, detects obstacles in the user's path and speaks real-time audio alerts.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li>Live camera feed processed with <strong>OpenCV</strong>.</li><li><strong>TensorFlow / PyTorch</strong> object-detection model identifies obstacles in the path.</li><li>Real-time <strong>audio alerts</strong> to guide low-light navigation.</li></ul></div>
+</div><div class="side">
+<div><p class="label">My contribution</p><p class="p">Built independently: detection pipeline, camera handling and audio alerts.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">TensorFlow</span><span class="chip">PyTorch</span><span class="chip">Object detection</span></div></div>
+</div></div></details>
+<details class="proj rv" data-c="ai cv web">
+<summary><span class="no">10</span><span><span class="nm">Crowd Detection &amp; Counting System</span><span class="meta">Computer vision · 2024 · <em>Solo project</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">Counting people in dense crowd photos is slow by hand, and standard detectors miss small, distant faces.</p></div>
+<div><p class="label">Solution</p><p class="p">Upload an image and get every detected person boxed with a confidence score and a total headcount, for crowd-density estimation.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li><strong>YOLOv10-L</strong> face model (Ultralytics) on GPU with CUDA.</li><li><strong>SAHI sliced inference</strong> (192 px slices, 30% overlap) to catch small faces; results merged across slices.</li><li><strong>Flask</strong> app: upload, detect, draw boxes with confidence scores, show the total count.</li></ul></div>
+<div><p class="label">Limitations &amp; next steps</p><p class="p">Model weights are not in the repository because of GitHub size limits. Next: real-time video, density maps and cloud deployment.</p></div>
+</div><div class="side">
+<div><p class="label">My contribution</p><p class="p">Built solo: detection pipeline, sliced inference and the Flask web app.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">Python</span><span class="chip">YOLOv10</span><span class="chip">SAHI</span><span class="chip">OpenCV</span><span class="chip">Flask</span><span class="chip">CUDA</span></div></div>
+<div class="links"><a class="btn" href="https://github.com/shivv-14/crowd-detection-web-app" target="_blank" rel="noopener"><svg viewBox="0 0 9 9" aria-hidden="true"><path d="M1.6 .4V6H6.2" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="M5.6 3.6 8.6 6 5.6 8.4Z" fill="currentColor"/></svg>Repository</a></div>
+</div></div></details>
+<details class="proj rv" data-c="cv web">
+<summary><span class="no">11</span><span><span class="nm">Face Recognition Attendance System</span><span class="meta">Computer vision · Web · 2026 · <em>Personal project</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">Manual attendance is slow and easy to fake.</p></div>
+<div><p class="label">Solution</p><p class="p">A webcam system that recognises enrolled students and marks attendance automatically, managed from a web dashboard.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li><strong>Haar cascade</strong> face detection and <strong>LBPH</strong> face recognition (OpenCV).</li><li>Captures 30 face images per student, trains the model, then recognises faces in real time; unknown faces are labelled Unknown.</li><li>PHP dashboard to add or remove students, run capture, training and recognition, and view CSV attendance logs.</li></ul></div>
+</div><div class="side">
+<div><p class="label">My contribution</p><p class="p">Built the Python recognition scripts and the PHP / MySQL dashboard that runs them.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">NumPy</span><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">XAMPP</span></div></div>
+<div class="links"><a class="btn" href="https://github.com/shivv-14/face-recognition-attendance-system" target="_blank" rel="noopener"><svg viewBox="0 0 9 9" aria-hidden="true"><path d="M1.6 .4V6H6.2" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="M5.6 3.6 8.6 6 5.6 8.4Z" fill="currentColor"/></svg>Repository</a></div>
+</div></div></details>
+<details class="proj rv" data-c="ai web">
+<summary><span class="no">12</span><span><span class="nm">MedVision</span><span class="meta">Healthcare · Web app · 2026 · <em>Personal project</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">People in therapy or with chronic conditions lack continuous support and struggle to track their health data.</p></div>
+<div><p class="label">Solution</p><p class="p">An AI-assisted wellness platform that brings therapy guidance, tracking and medical information together.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li>AI therapy assistant chat for guided, CBT-style conversations.</li><li>Progress dashboard with therapy streaks, and a pain diary with trend charts.</li><li>Medicine search, quick symptom screening and session management.</li></ul></div>
+</div><div class="side">
+<div><p class="label">My contribution</p><p class="p">Built the Next.js / React application.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">Next.js</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">CSS</span></div></div>
+<div class="links"><a class="btn" href="https://github.com/shivv-14/Med-Vision-nq" target="_blank" rel="noopener"><svg viewBox="0 0 9 9" aria-hidden="true"><path d="M1.6 .4V6H6.2" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="M5.6 3.6 8.6 6 5.6 8.4Z" fill="currentColor"/></svg>Repository</a></div>
+</div></div></details>
+<details class="proj rv" data-c="web">
+<summary><span class="no">13</span><span><span class="nm">Gym Management System (WebGym)</span><span class="meta">Full stack web · 2024 · <em>Solo project</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">Gyms track members, payments and renewals by hand.</p></div>
+<div><p class="label">Solution</p><p class="p">A role-based gym platform with separate dashboards for admins, gym owners and members.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li><strong>PHP</strong> MVC-style architecture (controllers + models) on <strong>MySQL</strong>.</li><li>Secure role-based authentication with OTP password reset; email notifications via PHPMailer.</li><li>Attendance tracking, payment monitoring, renewals, membership requests, gym discovery and reviews.</li></ul></div>
+</div><div class="side">
+<div><p class="label">My contribution</p><p class="p">Designed and built independently: database schema, MVC structure, authentication and all three dashboards.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">PHPMailer</span></div></div>
+<div class="links"><a class="btn" href="https://github.com/shivv-14/WEB_GYM" target="_blank" rel="noopener"><svg viewBox="0 0 9 9" aria-hidden="true"><path d="M1.6 .4V6H6.2" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="M5.6 3.6 8.6 6 5.6 8.4Z" fill="currentColor"/></svg>Repository</a></div>
+</div></div></details>
+<details class="proj rv" data-c="web">
+<summary><span class="no">14</span><span><span class="nm">ICA Tracker — NMIMS Hyderabad</span><span class="meta">Full stack web · 2025 · <em>Team of 3</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">Program chairs, teachers and students need one place to follow internal continuous assessment (ICA) performance and attendance.</p></div>
+<div><p class="label">Solution</p><p class="p">A multi-dashboard academic tracker that centralises performance monitoring and attendance.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li>Role-based access for Program Chair, Teachers, Students and Admin.</li><li>Structured SQL database modules for marks and attendance.</li><li>Built with PHP, JavaScript and SQL.</li></ul></div>
+</div><div class="side">
+<div><p class="label">My contribution</p><p class="p">Built database modules and role-based access as one of three developers.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">SQL</span></div></div>
+</div></div></details>
+<details class="proj rv" data-c="web">
+<summary><span class="no">15</span><span><span class="nm">VEHISECURE</span><span class="meta">Web · Security · 2026 · <em>Personal project</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">Sites need a reliable record of which vehicles entered and left, and who logged them.</p></div>
+<div><p class="label">Solution</p><p class="p">A PHP web app for logging vehicle entry and exit, with officer logins and activity records.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li>Authenticated officer login.</li><li>Entry and exit forms with uploads, and a searchable records view.</li><li>Officer activity log.</li></ul></div>
+</div><div class="side">
+<div><p class="label">My contribution</p><p class="p">Built the application and its MySQL database.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">CSS</span></div></div>
+<div class="links"><a class="btn" href="https://github.com/shivv-14/VEHISECURE" target="_blank" rel="noopener"><svg viewBox="0 0 9 9" aria-hidden="true"><path d="M1.6 .4V6H6.2" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="M5.6 3.6 8.6 6 5.6 8.4Z" fill="currentColor"/></svg>Repository</a></div>
+</div></div></details>
+<details class="proj rv" data-c="web">
+<summary><span class="no">16</span><span><span class="nm">Fluyco Media — Agency Website</span><span class="meta">Web design · Front end · 2026 · <em>Website build</em></span></span><span class="pm" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="main">
+<div><p class="label">Problem</p><p class="p">A video post-production agency needed a site whose one job is turning visitors into booked discovery calls.</p></div>
+<div><p class="label">Solution</p><p class="p">A video-first landing page with case studies, a filterable portfolio and a booking flow.</p></div>
+<div><p class="label">Architecture &amp; implementation</p><ul class="b"><li>Background-video hero, problems-and-solutions table, reels with hover previews and a full-screen player.</li><li>One consistent hover system with focus states and reduced-motion support.</li><li>Tested at 320–1440 px with no horizontal overflow; tap targets of at least 44 px.</li></ul></div>
+</div><div class="side">
+<div><p class="label">My contribution</p><p class="p">Built the site and deployed it on Vercel.</p></div>
+<div><p class="label">Stack</p><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Vercel</span></div></div>
+<div class="links"><a class="btn" href="https://fluycomedia.vercel.app" target="_blank" rel="noopener"><svg viewBox="0 0 9 9" aria-hidden="true"><path d="M1.6 .4V6H6.2" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="M5.6 3.6 8.6 6 5.6 8.4Z" fill="currentColor"/></svg>Live site</a><a class="btn ghost" href="https://github.com/shivv-14/fluycomedia" target="_blank" rel="noopener">Repository ↗</a></div>
+</div></div></details>
+  </div>
+</section>
+
+<!-- ======================= 05 RESEARCH ======================= -->
+<section class="sec" id="research" aria-labelledby="rs-h">
+  <div class="sec-head rv">
+    <p class="idx"><b>05</b> / Research &amp; publications</p>
+    <h2 class="h2" id="rs-h">Research</h2>
+  </div>
+  <div class="row rv">
+    <div><h3>Fruit &amp; vegetable freshness detection using deep learning</h3><p class="when">IICTDS 2025 · NMIMS CHANDIGARH</p></div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <p class="p"><strong>Co-authored and presented</strong> at the International Conference IICTDS 2025, NMIMS Chandigarh. The research applies deep learning to classify the freshness of fruits and vegetables for supply-chain and food-quality analysis.</p>
+      <div><p class="label">My contribution</p><p class="p">Model development and prototype implementation.</p></div>
+      <div class="chips"><span class="chip l">Presented · Co-author</span><span class="chip">Deep learning</span><span class="chip">Image classification</span></div>
+    </div>
+  </div>
+  <div class="row rv">
+    <div><h3>Native or non-native? A stylometric approach</h3><p class="when">INDEPENDENT STUDY · 2026</p></div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <p class="p"><strong>Question:</strong> can an anonymous English passage be classified as written by a native or non-native writer using only style signals — and does it still work on writers the model has never seen?</p>
+      <p class="p"><strong>Method:</strong> handcrafted spaCy features (sentence length, vocabulary richness, function words, POS, punctuation) vs. character 3–5-gram TF-IDF; Logistic Regression and calibrated Linear SVM; writer-separated splits over 5 seeds, majority and length-only baselines, a leakage comparison and a feature ablation.</p>
+      <p class="p"><strong>Finding:</strong> character n-grams (LR) reached <strong>0.846 ± 0.064 macro-F1</strong> and <strong>0.895 ROC-AUC</strong> on unseen writers, against 0.688 for handcrafted features and 0.661 for a length-only baseline (W&amp;I + LOCNESS corpus). Topic is confounded with the label in this corpus; limitations are documented in the repository.</p>
+      <div class="links"><a class="btn ghost" href="https://github.com/shivv-14/stylometry-native-classifier" target="_blank" rel="noopener">Repository &amp; report ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 06 ACHIEVEMENTS ======================= -->
+<section class="sec" id="achievements" aria-labelledby="ac-h">
+  <div class="sec-head rv">
+    <p class="idx"><b>06</b> / Achievements, leadership &amp; collaboration</p>
+    <h2 class="h2" id="ac-h">Achievements</h2>
+  </div>
+  <div class="grid">
+    <div class="cell rv"><p class="label">Hackathon · 2025</p><h3>Winner — AI4 Health Hackathon</h3><p class="p">Judged by Capgemini. Rank 1 of 19 teams in a national-level competition with an AI chest X-ray disease detection system.</p></div>
+    <div class="cell rv"><p class="label">Research · 2025</p><h3>Paper presenter — IICTDS 2025</h3><p class="p">Presented co-authored deep learning research at the international conference at NMIMS Chandigarh.</p></div>
+    <div class="cell rv"><p class="label">Hackathon</p><h3>KL University Hackathon</h3><p class="p">Certified participant in the KL University hackathon.</p></div>
+    <div class="cell rv"><p class="label">Leadership</p><h3>Organiser — Sports Club, NMIMS Hyderabad</h3><p class="p">Helps plan and run sports events for the campus.</p></div>
+    <div class="cell rv"><p class="label">Teamwork</p><h3>Team projects</h3><p class="p">ICA Tracker with a team of three; the AI4 Health hackathon team; co-authored research. Solo projects are labelled separately.</p></div>
+    <div class="cell rv"><p class="label">Engineering practice</p><h3>How I ship</h3><p class="p">Branch-per-task Git workflow with conventional commits and milestone tags, unit and end-to-end tests, CI on GitHub Actions, and READMEs with architecture diagrams.</p></div>
+  </div>
+</section>
+
+<!-- ======================= 07 CERTIFICATIONS ======================= -->
+<section class="sec" id="certifications" aria-labelledby="ce-h">
+  <div class="sec-head rv">
+    <p class="idx"><b>07</b> / Certifications</p>
+    <h2 class="h2" id="ce-h">Certifications</h2>
+  </div>
+  <div class="grid">
+    <div class="cell rv"><p class="label">Amazon Web Services</p><h3>AWS Cloud Foundations</h3><p class="p">Core AWS services, cloud concepts, security and architecture, applied in the EC2, Lambda and Cognito projects.</p></div>
+    <div class="cell rv"><p class="label">Google Cloud</p><h3>Google Cloud Foundations</h3><p class="p">Google Cloud fundamentals: compute, storage and identity.</p></div>
+    <div class="cell rv"><p class="label">Microsoft</p><h3>Microsoft Certifications</h3><p class="p">Microsoft certification coursework.</p></div>
+    <div class="cell rv"><p class="label">KL University</p><h3>KL University Hackathon Certification</h3><p class="p">Hackathon participation certificate.</p></div>
+    <div class="cell rv"><p class="label">ICAT</p><h3>ICAT Certificate</h3><p class="p">ICAT assessment certificate.</p></div>
+  </div>
+</section>
+
+<!-- ======================= 08 PROFILES ======================= -->
+<section class="sec" id="profiles" aria-labelledby="pf-h">
+  <div class="sec-head rv">
+    <p class="idx"><b>08</b> / Code, profiles &amp; what's next</p>
+    <h2 class="h2" id="pf-h">On GitHub</h2>
+  </div>
+  <div class="grid">
+    <div class="cell rv"><p class="label">github.com/shivv-14</p><h3>Key repositories</h3>
+      <p class="p"><a class="lnk" href="https://github.com/shivv-14/VocaSense" target="_blank" rel="noopener">VocaSense</a> · <a class="lnk" href="https://github.com/shivv-14/FieldSense-AI" target="_blank" rel="noopener">FieldSense-AI</a> · <a class="lnk" href="https://github.com/shivv-14/stylometry-native-classifier" target="_blank" rel="noopener">stylometry-native-classifier</a> · <a class="lnk" href="https://github.com/shivv-14/crowd-detection-web-app" target="_blank" rel="noopener">crowd-detection-web-app</a> · <a class="lnk" href="https://github.com/shivv-14/face-recognition-attendance-system" target="_blank" rel="noopener">face-recognition-attendance-system</a> · <a class="lnk" href="https://github.com/shivv-14/AI4-Chest-X-ray" target="_blank" rel="noopener">AI4-Chest-X-ray</a></p></div>
+    <div class="cell rv"><p class="label">Documentation</p><h3>Technical writing</h3><p class="p">Project READMEs with architecture diagrams, setup and test instructions; an auto-generated research results report; an ethics and limitations note for the stylometry study.</p></div>
+    <div class="cell rv"><p class="label">Now</p><h3>Currently learning</h3><p class="p">Blockchain fundamentals and Solidity smart contracts, alongside coursework. Taking FieldSense AI through its 12-week roadmap to v1.0.</p></div>
+    <div class="cell rv"><p class="label">Next</p><h3>Short-term goals</h3><p class="p">An AI/ML, computer vision or cloud engineering internship; deploying more of my models as production services on AWS.</p></div>
+  </div>
+</section>
+
+<!-- ======================= 09 CONTACT ======================= -->
+<section class="sec contact" id="contact" aria-labelledby="ct-h">
+  <div class="sec-head rv">
+    <p class="idx"><b>09</b> / Contact &amp; opportunities</p>
+    <h2 class="h2" id="ct-h">Let's build something</h2>
+    <p class="lede">Open to <strong>internships and graduate roles</strong> as an AI / ML engineer, computer vision engineer, cloud or backend engineer, or full stack developer. Based in Hyderabad, graduating in 2027.</p>
+  </div>
+  <a class="big rv" href="mailto:brungishivaganesh@gmail.com">brungishivaganesh<wbr>@gmail.com</a>
+  <div class="links rv">
+    <a class="btn" href="assets/Brungi_Shiva_Ganesh_Resume.pdf" download><svg viewBox="0 0 9 9" aria-hidden="true"><path d="M1.6 .4V6H6.2" fill="none" stroke="currentColor" stroke-width="1.35"/><path d="M5.6 3.6 8.6 6 5.6 8.4Z" fill="currentColor"/></svg>Resume — AI &amp; Cloud (PDF)</a>
+    <a class="btn ghost" href="assets/Brungi_Shiva_Ganesh_Resume_WebDeveloper.pdf" download>Resume — Web Developer (PDF)</a>
+    <a class="btn ghost" href="https://www.linkedin.com/in/brungi-shiva-ganesh/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a class="btn ghost" href="https://github.com/shivv-14" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>© 2026 BRUNGI SHIVA GANESH</span>
+  <span>HYDERABAD, INDIA</span>
+  <a class="lnk" href="#stage">BACK TO TOP ↑</a>
+</footer>
+
+<script>
+(function(){
+  var stage=document.getElementById('stage'),img=document.getElementById('photo'),band=document.querySelector('.band');
+  var IW=1920,IH=1080,FX=1041,FY=545,ZOOM=0.95,TX=700,BANGLES=1080;
+  var root=document.documentElement,nav=document.querySelector('.nav'),btn=document.getElementById('menuBtn'),
+      links=document.getElementById('navLinks'),label=btn.querySelector('.menu-label');
+  function layout(){return getComputedStyle(root).getPropertyValue('--layout').trim()||'desktop';}
+  function place(){
+    var W=stage.clientWidth,H=stage.clientHeight; if(!W||!H) return;
+    var u=Math.min(W/1280,H/640), bh=band.getBoundingClientRect().height, mode=layout();
+    var compact=mode!=='desktop', tablet=compact;
+    var s=Math.max(W/IW,H/IH,compact?(tablet?Math.max(ZOOM*W/1280,H/BANGLES):0):ZOOM*u);
+    var tx=tablet?W*TX/1280:compact?W*0.55:(W-1280*u)/2+TX*u, ty=bh+0.375*(H-bh);
+    var l=tx-FX*s,t=ty-FY*s;
+    l=Math.min(0,Math.max(W-IW*s,l)); t=Math.min(0,Math.max(H-IH*s,tablet?H-BANGLES*s:-Infinity,t));
+    img.style.width=IW*s+'px';img.style.height=IH*s+'px';img.style.left=l+'px';img.style.top=t+'px';
+    img.classList.add('is-placed'); stage.style.setProperty('--band-h',bh+'px');
+    if(!compact&&nav.classList.contains('is-open')) setMenu(false,false);
+  }
+  function setMenu(open,moveFocus){
+    nav.classList.toggle('is-open',open); btn.setAttribute('aria-expanded',String(open)); label.textContent=open?'CLOSE':'MENU';
+    if(moveFocus!==false){ if(open){var first=links.querySelector('a'); if(first) requestAnimationFrame(function(){first.focus({preventScroll:true})});} else btn.focus(); }
+  }
+  btn.addEventListener('click',function(){setMenu(!nav.classList.contains('is-open'))});
+  links.addEventListener('click',function(e){if(e.target.closest('a')&&layout()!=='desktop')setMenu(false,false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('is-open'))setMenu(false)});
+  document.addEventListener('pointerdown',function(e){if(nav.classList.contains('is-open')&&!nav.contains(e.target))setMenu(false,false)});
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){img.removeAttribute('autoplay');img.pause();}
+  place(); addEventListener('resize',place); if(window.ResizeObserver) new ResizeObserver(place).observe(stage);
+  if(document.fonts) document.fonts.ready.then(place);
+})();
+</script>
+<script>
+(function(){
+  var root=document.documentElement;
+  if(!root.classList.contains('is-entering')) return;
+  var EXPO='cubic-bezier(0.16,1,0.3,1)', QUART='cubic-bezier(0.76,0,0.24,1)';
+  var img=document.getElementById('photo');
+  var waits=[document.fonts?document.fonts.ready:null,img&&img.decode?img.decode().catch(function(){}):null].filter(Boolean);
+  Promise.race([Promise.all(waits),new Promise(function(r){setTimeout(r,700)})]).then(function(){
+    if(!root.classList.contains('is-entering')) return;
+    window.__soscaleEntrance=true;
+    var desk=(getComputedStyle(root).getPropertyValue('--layout').trim()||'desktop')==='desktop';
+    var lift=desk?6:4, anims=[];
+    function play(el,kf,t,d,e){ if(el) anims.push(el.animate(kf,{delay:t*1000,duration:d*1000,easing:e||EXPO,fill:'both'})); }
+    function rise(px){ return [{opacity:0,transform:'translateY('+px+'px)'},{opacity:1,transform:'none'}]; }
+    var q=function(s){return document.querySelector(s)};
+    [].forEach.call(document.querySelectorAll('.lid'),function(l,i){
+      play(l,[{opacity:1,transform:'scaleY(1)'},{opacity:1,transform:'scaleY(0)'}],.06+i*.06,1.0,QUART);
+    });
+    (desk?[].slice.call(document.querySelectorAll('.nav .col')):[q('.menu-btn')]).forEach(function(el,i){ play(el,rise(lift),.50+i*.06,.6); });
+    play(q('.tagline'),rise(lift),.70,.6);
+    play(q('.headline'),[{transform:'translateY(100%)',clipPath:'inset(-100% -8px 100% -8px)'},{transform:'none',clipPath:'inset(0 -8px 0 -8px)'}],.85,1.0);
+    play(q('.cta'),[{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0 0 0)'}],1.10,.75);
+    play(q('.tp'),rise(lift+2),1.20,.7);
+    root.classList.remove('is-entering');
+    Promise.all(anims.map(function(a){return a.finished})).then(function(){ anims.forEach(function(a){a.cancel()}); },function(){});
+  });
+})();
+</script>
+<script>
+/* projects filter + scroll reveal */
+(function(){
+  var btns=document.querySelectorAll('.filters button'),items=document.querySelectorAll('.proj');
+  [].forEach.call(btns,function(b){b.addEventListener('click',function(){
+    var f=b.getAttribute('data-f');
+    [].forEach.call(btns,function(x){x.setAttribute('aria-pressed',String(x===b))});
+    [].forEach.call(items,function(p){p.hidden=f!=='all'&&(' '+p.getAttribute('data-c')+' ').indexOf(' '+f+' ')<0});
+  })});
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.documentElement.classList.add('js-rv');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+  [].forEach.call(document.querySelectorAll('.rv'),function(el){io.observe(el)});
+})();
+</script>
